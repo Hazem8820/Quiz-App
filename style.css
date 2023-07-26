@@ -1,0 +1,99 @@
+:root {
+    --animate-duration: 800ms;
+}
+
+body {
+    background-image: url(pages/Campus_Image.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: "Changa", sans-serif;
+    overflow: hidden;
+}
+
+/* ======> Global Rules */
+.bg-main {
+    background-color: #07002177;
+}
+
+.btn-questions,
+.btn-start {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #0e004b;
+    --bs-btn-border-color: #408ec6;
+    --bs-btn-hover-color: #eee;
+    --bs-btn-hover-bg: #0a0035b3;
+    --bs-btn-hover-border-color: #408ec6;
+}
+
+.btn-choice {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #408ec6;
+    --bs-btn-border-color: #0a0035b3;
+    --bs-btn-hover-color: #eee;
+    --bs-btn-hover-bg: #0a0035b3;
+    --bs-btn-hover-border-color: #408ec6;
+}
+
+/* ======> Question Card */
+.heading {
+    --radius: 10px;
+    width: fit-content;
+    padding: 6px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: var(--radius);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.heading h1 {
+    font-size: 50px;
+    padding: 15px;
+    background-image: linear-gradient(30deg, #eee, #fff);
+    font-family: "Electrolize", sans-serif;
+    border-radius: inherit;
+}
+
+.heading::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    transform: scale(2) translate(-50%, -50%);
+    scale: 1.1;
+    background-image: conic-gradient(#408ec6,#7a2048);
+    animation: spinning 7s infinite linear;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+@keyframes spinning {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(45deg);
+    }
+
+    75% {
+        transform: rotate(315deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate__animated.animate__zoomInDown {
+    --animate-duration: 1s;
+}
+
+.animate__animated.animate__fadeInBottomLeft {
+    --animate-duration: 1s;
+    --animate-delay: 1s;
+}

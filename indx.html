@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <!--?========> Bootstrap Style Sheet <========-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--?========> Google Fonts <========-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700&family=Dosis:wght@200;300;400;500;600;700;800&family=Electrolize&display=swap"
+        rel="stylesheet" />
+    <!--?========> Bootstrap Icons <========-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <!--?========> Animate.CSS <========-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--?========> Main style Sheet <========-->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main id="settings" class="vh-100 bg-main d-flex flex-column justify-content-center align-items-center">
+        <div class="heading animate__animated animate__zoomInDown">
+            <h1 class="mb-1 text-dark">Quiz App</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <form
+                    class="start-quiz col-lg-8 offset-lg-2 d-flex flex-column gap-3 animate__animated animate__fadeInBottomLeft animate__delay-1s"
+                    id="quizOptions">
+                    <div class="form-floating">
+                        <select class="form-select" id="categoryMenu" aria-label="category Select">
+                            <option selected value="">Any Category</option>
+                            <option value="9">General Knowledge</option>
+                            <option value="27">Animals</option>
+                            <option value="19">Mathematics</option>
+                            <option value="18">Computer Science</option>
+                            <option value="22">Geography</option>
+                        </select>
+                        <label for="categoryMenu">Choose Category</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <select class="form-select" id="difficultyOptions" aria-label="difficulty Select">
+                            <option selected value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                        <label for="difficultyOptions">Choose Difficulty Level</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="questionsNumber"
+                            placeholder="Number of Questions" />
+                        <label for="QuestionsNumber">Number of Questions</label>
+                    </div>
+                    <div id="alertNum1" class="w-75 mx-auto d-none bg-danger text-light text-center pt-2 rounded-pill">
+                        <h3>Please Enter Number of Questions</h3>
+                    </div>
+                    <button type="button" class="btn btn-start rounded-pill" id="startQuiz">
+                        Start
+                    </button>
+                </form>
+
+                <div class="questions-container"></div>
+            </div>
+        </div>
+    </main>
+    <div id="Quiz" class="vh-100 overflow-hidden bg-main d-flex d-none flex-column justify-content-center align-items-center">
+        <div
+            class="p-5 bg-dark bg-opacity-75 w-50 rounded-3 border-1 border-white border animate__animated animate__bounceInLeft">
+            <div class="heading w-100 m-auto animate__animated animate__zoomInDown">
+                <h1 class="mb-1 text-dark">Question</h1>
+            </div>
+            <div class="d-flex justify-content-end">
+                <div class="bg-light w-25 text-center mt-3 rounded-pill">
+                    <span id="from" class="px-1 text-danger"></span>OF<span class="px-1 text-danger" id="to"></span><span class="pe-4">Question</span>
+                </div>
+            </div>
+            <div id="alertNum3" class="bg-danger mt-2 d-none mb-2 w-25 text-light mx-auto rounded-pill text-center">incorrect</div>
+            <div id="alertNum4" class="bg-success mt-2 d-none mb-2 w-25 text-light mx-auto rounded-pill text-center">correct</div>
+            <div class="my-5 d-flex animate__animated animate__zoomInRight animate__delay-1s">
+                <span class="text-light fs-1 fw-bolder">Q:</span>
+                <p id="questionTitle" class="text-light ps-2 fw-bolder fs-1"></p>
+            </div>
+            <div class="my-5 text-center animate__animated animate__zoomInRight animate__delay-1s">
+                <div id="questionContent">
+                    
+                </div>
+            </div>
+            <div id="alertNum2" class="bg-danger d-none mb-2 w-50 text-light mx-auto rounded-pill text-center">Please Select An Answer</div>
+            <div class="d-flex justify-content-end align-items-end animate__animated animate__zoomInUp"><button
+                   id="nextQuestion" class="btn-start btn py-3 px-5 btn-light ms-auto">Next</button></div>
+        </div>
+    </div>
+    <div id="finish" class="vh-100 bg-main d-flex d-none flex-column justify-content-center align-items-center">
+        <div
+            class="p-5 bg-dark bg-opacity-75 w-50 rounded-3 border-1 border-white border animate__animated animate__bounceInLeft">
+            <div class="heading w-100 m-auto animate__animated animate__zoomInDown">
+                <h1 class="mb-1 text-dark">Result</h1>
+            </div>
+            <div class="text-center text-white my-5 animate__animated animate__fadeIn animate__delay-1s">
+                <h2 class="fs-1 fw-bolder">score: <span id="finishScore" class="text-success"></span></h2>
+            </div>
+            <div class="d-flex justify-content-end align-items-end animate__animated animate__zoomInUp"><button
+                   id="tryAgain" class="btn-start btn py-3 px-5 btn-light ms-auto">Try Again?</button></div>
+        </div>
+    </div>
+    <!--!========> JS Main file <========-->
+    <script src="JS/main.js" type="module"></script>
+</body>
+
+</html>
